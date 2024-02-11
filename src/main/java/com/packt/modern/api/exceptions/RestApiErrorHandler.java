@@ -39,8 +39,9 @@ public class RestApiErrorHandler {
     ex.printStackTrace(); // TODO: Should be kept only for development
     Error error = ErrorUtils
         .createError(ErrorCode.GENERIC_ERROR.getErrMsgKey(), ErrorCode.GENERIC_ERROR.getErrCode(),
-            HttpStatus.INTERNAL_SERVER_ERROR.value()).setUrl(request.getRequestURL().toString())
-        .setReqMethod(request.getMethod());
+            HttpStatus.INTERNAL_SERVER_ERROR.value());
+    error.setUrl(request.getRequestURL().toString());
+    error.setReqMethod(request.getMethod());
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 
@@ -52,8 +53,9 @@ public class RestApiErrorHandler {
     Error error = ErrorUtils
         .createError(ErrorCode.HTTP_MEDIATYPE_NOT_SUPPORTED.getErrMsgKey(),
             ErrorCode.HTTP_MEDIATYPE_NOT_SUPPORTED.getErrCode(),
-            HttpStatus.UNSUPPORTED_MEDIA_TYPE.value()).setUrl(request.getRequestURL().toString())
-        .setReqMethod(request.getMethod());
+            HttpStatus.UNSUPPORTED_MEDIA_TYPE.value());
+     error.setUrl(request.getRequestURL().toString());
+     error.setReqMethod(request.getMethod());
     log.info("HttpMediaTypeNotSupportedException :: request.getMethod(): " + request.getMethod());
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
@@ -66,8 +68,9 @@ public class RestApiErrorHandler {
     Error error = ErrorUtils
         .createError(ErrorCode.HTTP_MESSAGE_NOT_WRITABLE.getErrMsgKey(),
             ErrorCode.HTTP_MESSAGE_NOT_WRITABLE.getErrCode(),
-            HttpStatus.UNSUPPORTED_MEDIA_TYPE.value()).setUrl(request.getRequestURL().toString())
-        .setReqMethod(request.getMethod());
+            HttpStatus.UNSUPPORTED_MEDIA_TYPE.value());
+    error.setUrl(request.getRequestURL().toString());
+    error.setReqMethod(request.getMethod());
     log.info("HttpMessageNotWritableException :: request.getMethod(): " + request.getMethod());
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
@@ -80,8 +83,9 @@ public class RestApiErrorHandler {
     Error error = ErrorUtils
         .createError(ErrorCode.HTTP_MEDIA_TYPE_NOT_ACCEPTABLE.getErrMsgKey(),
             ErrorCode.HTTP_MEDIA_TYPE_NOT_ACCEPTABLE.getErrCode(),
-            HttpStatus.UNSUPPORTED_MEDIA_TYPE.value()).setUrl(request.getRequestURL().toString())
-        .setReqMethod(request.getMethod());
+            HttpStatus.UNSUPPORTED_MEDIA_TYPE.value());
+    error.setUrl(request.getRequestURL().toString());
+    error.setReqMethod(request.getMethod());
     log.info("HttpMediaTypeNotAcceptableException :: request.getMethod(): " + request.getMethod());
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
@@ -94,8 +98,9 @@ public class RestApiErrorHandler {
     Error error = ErrorUtils
         .createError(ErrorCode.HTTP_MESSAGE_NOT_READABLE.getErrMsgKey(),
             ErrorCode.HTTP_MESSAGE_NOT_READABLE.getErrCode(),
-            HttpStatus.NOT_ACCEPTABLE.value()).setUrl(request.getRequestURL().toString())
-        .setReqMethod(request.getMethod());
+            HttpStatus.NOT_ACCEPTABLE.value());
+    error.setUrl(request.getRequestURL().toString());
+    error.setReqMethod(request.getMethod());
     log.info("HttpMessageNotReadableException :: request.getMethod(): " + request.getMethod());
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
@@ -108,8 +113,9 @@ public class RestApiErrorHandler {
     Error error = ErrorUtils
         .createError(ErrorCode.JSON_PARSE_ERROR.getErrMsgKey(),
             ErrorCode.JSON_PARSE_ERROR.getErrCode(),
-            HttpStatus.NOT_ACCEPTABLE.value()).setUrl(request.getRequestURL().toString())
-        .setReqMethod(request.getMethod());
+            HttpStatus.NOT_ACCEPTABLE.value());
+    error.setUrl(request.getRequestURL().toString());
+    error.setReqMethod(request.getMethod());
     log.info("JsonParseException :: request.getMethod(): " + request.getMethod());
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }

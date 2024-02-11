@@ -1,5 +1,9 @@
 package com.packt.modern.api.exceptions;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 /**
  * An enumeration of error codes and associated i18n message keys for order
  * related validation errors.
@@ -8,6 +12,8 @@ package com.packt.modern.api.exceptions;
  * @project : Chapter03 - Modern API Development with Spring and Spring Boot Ed 2
  * @created : 31/10/2022, Monday
  **/
+@AllArgsConstructor
+@Getter
 public enum ErrorCode {
   // Internal Errors: 1 to 0999
   GENERIC_ERROR("PACKT-0001", "The system is unable to complete the request. Contact system support."),
@@ -19,24 +25,4 @@ public enum ErrorCode {
 
   private String errCode;
   private String errMsgKey;
-
-  ErrorCode(final String errCode, final String errMsgKey) {
-    this.errCode = errCode;
-    this.errMsgKey = errMsgKey;
-  }
-
-  /**
-   * @return the errCode
-   */
-  public String getErrCode() {
-    return errCode;
-  }
-
-  /**
-   * @return the errMsgKey
-   */
-  public String getErrMsgKey() {
-    return errMsgKey;
-  }
-
 }

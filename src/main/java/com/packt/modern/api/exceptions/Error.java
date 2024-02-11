@@ -1,5 +1,9 @@
 package com.packt.modern.api.exceptions;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.logging.log4j.util.Strings;
 
 /**
@@ -11,6 +15,9 @@ import org.apache.logging.log4j.util.Strings;
  * @project : Chapter03 - Modern API Development with Spring and Spring Boot Ed 2
  * @created : 31/10/2022, Monday
  **/
+@Data
+@Setter
+@NoArgsConstructor
 public class Error {
 
   private static final long serialVersionUID = 1L;
@@ -38,50 +45,4 @@ public class Error {
    * Method of request that produced the error.
    */
   private String reqMethod = "Not available";
-
-  public String getErrorCode() {
-    return errorCode;
-  }
-
-  public void setErrorCode(String errorCode) {
-    this.errorCode = errorCode;
-  }
-
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public Integer getStatus() {
-    return status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String getUrl() {
-    return url;
-  }
-
-  public Error setUrl(String url) {
-    if (Strings.isNotBlank(url)) {
-      this.url = url;
-    }
-    return this;
-  }
-
-  public String getReqMethod() {
-    return reqMethod;
-  }
-
-  public Error setReqMethod(String method) {
-    if (Strings.isNotBlank(method)) {
-      this.reqMethod = method;
-    }
-    return this;
-  }
 }

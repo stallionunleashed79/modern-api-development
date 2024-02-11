@@ -42,11 +42,14 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.22'
+
     // OpenAPI Starts
     swaggerCodegen 'org.openapitools:openapi-generator-cli:6.2.1'
     compileOnly 'io.swagger:swagger-annotations:1.6.4'
     compileOnly 'org.springframework.boot:spring-boot-starter-validation'
     compileOnly 'org.openapitools:jackson-databind-nullable:0.2.3'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
     // required for schema in swagger generated code
@@ -56,6 +59,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
 tasks.named('test') {
