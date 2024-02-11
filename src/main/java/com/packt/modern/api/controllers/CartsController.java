@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
+
 @RestController
 public class CartsController implements CartApi {
 
@@ -20,11 +22,11 @@ public class CartsController implements CartApi {
     @Override
     public ResponseEntity<List<Item>> addCartItemsByCustomerId(final String customerId, @Valid Item item) {
         log.info("Request for customer ID: {}\nItem: {}", customerId, item);
-        return ResponseEntity.ok(Collections.emptyList());
+        return ResponseEntity.ok(emptyList());
     }
 
     @Override
     public ResponseEntity<List<Cart>> getCartByCustomerId(final String customerId) {
-        throw new RuntimeException("Manual Exception thrown");
+        return ResponseEntity.ok(Collections.emptyList());
     }
 }
