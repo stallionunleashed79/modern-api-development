@@ -31,7 +31,7 @@ public class CartEntity {
             joinColumns = @JoinColumn(name = "CART_ID"),
             inverseJoinColumns = @JoinColumn(name = "ITEM_ID")
     )
-    private List<ItemEntity> items = new ArrayList<>();
+    private List<ItemEntity> items;
 }
 
 
